@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">YassineTest</string>
+    <string name="titre">Konachy</string>
+    <string name="client">client</string>
+    <string name="molhanot">molhanot</string>
+    <string name="inscrire">inscrire</string>
+    <string name="ajouter">ajouter</string>
+    <string name="anuler">anuler</string>
+</resources>
