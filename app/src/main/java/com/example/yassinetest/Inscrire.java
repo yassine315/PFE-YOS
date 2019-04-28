@@ -48,20 +48,6 @@ public class Inscrire extends AppCompatActivity {
                 String statut = ((RadioButton)findViewById(id)).getText().toString();
 
 
-                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                 //on enregestrer les donnes dans le tele
-                 editor.putString(MolhanotInfo.NOM,nom);
-                 editor.putString(MolhanotInfo.PRENOM,prenom);
-                 editor.putString(MolhanotInfo.PASSWORD,password);
-                 editor.putString(MolhanotInfo.PHONE,tele);
-                 editor.putInt(MolhanotInfo.ID,1);
-                 editor.putString(MolhanotInfo.STATUT,statut);
-                 editor.putString(MolhanotInfo.EMAIL,email);
-
-                 editor.commit();
-
-                //on enregester dans MolhanotInfo
-                MolhanotInfo.initialiser(sharedPreferences.getString(MolhanotInfo.NOM,"null"),sharedPreferences.getString(MolhanotInfo.PRENOM,"null"),sharedPreferences.getInt(MolhanotInfo.ID,0),sharedPreferences.getString(MolhanotInfo.PASSWORD,"null"),sharedPreferences.getString(MolhanotInfo.PHONE,"null"),sharedPreferences.getString(MolhanotInfo.STATUT,"null"),sharedPreferences.getString(MolhanotInfo.EMAIL,"null"));
 
 
 
@@ -73,6 +59,23 @@ public class Inscrire extends AppCompatActivity {
 
 
                         if( !(nom.contentEquals("")|| prenom.contentEquals("") || tele.contentEquals("")|| password.contentEquals(""))) {
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            //on enregestrer les donnes dans le tele
+                            editor.putString(MolhanotInfo.NOM,nom);
+                            editor.putString(MolhanotInfo.PRENOM,prenom);
+                            editor.putString(MolhanotInfo.PASSWORD,password);
+                            editor.putString(MolhanotInfo.PHONE,tele);
+                            editor.putInt(MolhanotInfo.ID,1);
+                            editor.putString(MolhanotInfo.STATUT,statut);
+                            editor.putString(MolhanotInfo.EMAIL,email);
+
+                            editor.commit();
+
+                            //on enregester dans MolhanotInfo
+                            MolhanotInfo.initialiser(sharedPreferences.getString(MolhanotInfo.NOM,"null"),sharedPreferences.getString(MolhanotInfo.PRENOM,"null"),sharedPreferences.getInt(MolhanotInfo.ID,0),sharedPreferences.getString(MolhanotInfo.PASSWORD,"null"),sharedPreferences.getString(MolhanotInfo.PHONE,"null"),sharedPreferences.getString(MolhanotInfo.STATUT,"null"),sharedPreferences.getString(MolhanotInfo.EMAIL,"null"));
+
+
+
                             Intent intent = new Intent(Inscrire.this, MainActivity.class);
 
                             startActivity(intent);

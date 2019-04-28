@@ -19,6 +19,7 @@ import com.example.util.AdabterClient;
 import com.example.util.DialogAddClient;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class ResultaMolhanot extends AppCompatActivity {
@@ -26,7 +27,7 @@ public class ResultaMolhanot extends AppCompatActivity {
     private Toolbar mTopToolbar;
     DaoMolhanot daoMolhanot;
 
-    ArrayList<Client> monListC ;
+    List<Client> monListC ;
     ListView listView;
 
     @Override
@@ -37,9 +38,6 @@ public class ResultaMolhanot extends AppCompatActivity {
         setSupportActionBar(mTopToolbar);
         daoMolhanot = new DaoMolhanot(this);
          listView = (ListView)findViewById(R.id.list_client);
-
-
-
 
     }
 
@@ -93,6 +91,7 @@ public class ResultaMolhanot extends AppCompatActivity {
                                                         });
                                                        */
                                                 Intent intent = new Intent(ResultaMolhanot.this,Detaille.class);
+                                                intent.putExtra("idClient",item.getId());
                                                 startActivity(intent);
 
                                             }

@@ -20,6 +20,7 @@ public class BdMolhanot extends SQLiteOpenHelper {
     public static  final String TABLE_ACHATS = "achats";
     public static  final String NOM_ACHAT = "nom";
     public static  final String ID_ACHAT = "id";
+    public static  final String PRIX = "prix";
     public static  final String QUANTITE_ACHAT = "quantite";
     public static  final String ID_CLIENT_ACHAT = "id_client";
     public static  final String ID_MOLHANOT_ACHAT = "id_molhanot";
@@ -42,7 +43,7 @@ public class BdMolhanot extends SQLiteOpenHelper {
                     QUANTITE_ACHAT + " TEXT, " +
                     ID_MOLHANOT_ACHAT + " INTEGER, " +
                     ID_CLIENT_ACHAT + " INTEGER, " +
-
+                    PRIX +" REAL,"+
                     DATE + " TEXT ," +
                     "FOREIGN KEY("+ID_CLIENT_ACHAT+") REFERENCES "+TABLE_CLIENT+"("+ID_CLIENT+"));";
 

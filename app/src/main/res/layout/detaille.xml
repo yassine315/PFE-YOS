@@ -13,16 +13,10 @@
         style="@style/HeaderBar"
         android:elevation = "8dp"
         android:theme = "@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme ="@style/ThemeOverlay.AppCompat.Light" />
+         />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="90dp"
-        android:text="hellow" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="70dp"
-        android:text="bienvenue" />
+  <ListView
+      android:id="@+id/list_achats"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"></ListView>
 </LinearLayout>

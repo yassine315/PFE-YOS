@@ -1,17 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
 
-    <TextView
+
+    <EditText
+        android:id="@+id/input_achat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="hiiiiiiii"
-        android:textSize="20dp"/>
-    <TextView
+        android:hint="nom achat"
+        android:inputType="text"
+        android:scaleType="centerCrop"
+        android:textAppearance="?android:textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/input_quantite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="haaaaaaaa"
-        android:textSize="50dp"/>
+        android:hint="Quantite"
+        android:inputType="text"
+        android:layout_toRightOf="@id/input_achat"
+         />
 
-</LinearLayout>
+    <EditText
+        android:id="@+id/input_prix_achat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="prix"
+        android:inputType="numberDecimal"
+        android:layout_toRightOf="@id/input_quantite"
+        />
+
+
+</RelativeLayout>

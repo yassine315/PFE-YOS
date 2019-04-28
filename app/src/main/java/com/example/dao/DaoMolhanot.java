@@ -11,6 +11,7 @@ import com.example.com.example.beans.MolhanotInfo;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class DaoMolhanot {
     private static Context context;
@@ -38,7 +39,7 @@ public class DaoMolhanot {
         return row;
     }
 
-    public ArrayList<Client> aficher() {
+    public List<Client> aficher() {
         //ArrayList<Molhanot> list = new ArrayList<Molhanot>();
         BdMolhanot bd = new BdMolhanot(context, MolhanotInfo.DB, null, 1);
         SQLiteDatabase bdsql = bd.getWritableDatabase();
@@ -50,6 +51,7 @@ public class DaoMolhanot {
             Client m = new Client(cursor.getInt(0), cursor.getString(1), cursor.getString(2),0, cursor.getString(3), new Date(),cursor.getString(5));
             rs.add(m);
         }
+        cursor.close();
         bdsql.close();
         bd.close();
     return rs ;

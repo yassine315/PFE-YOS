@@ -14,7 +14,8 @@
     </style>
 
     <style name="NoActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:actionMenuTextColor">#fff</item>
+
+
         <item name="android:windowAnimationStyle">@null</item>
         <item name="android:windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
