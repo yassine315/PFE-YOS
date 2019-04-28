@@ -43,7 +43,6 @@ public class DialogAddClient extends DialogFragment {
                 DaoMolhanot daoMolhanot = new DaoMolhanot(getContext());
                 if(!(name.equals("")|| prenom.equals("") || tele.equals(""))) {
                     long l = daoMolhanot.ajouterClient(client);
-                    Toast.makeText(getContext(), l + " ligne existe dans la base", Toast.LENGTH_SHORT).show();
 
                 }
                 getActivity().finish();

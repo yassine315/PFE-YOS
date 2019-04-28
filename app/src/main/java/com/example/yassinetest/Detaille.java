@@ -28,7 +28,7 @@ public class Detaille extends AppCompatActivity {
     private int idClient;
     private final int idMolahanot = 1;
     ListView listView;
-    AdapterAchat adapterAchat;
+    AdapterAchat adapterAchat ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,6 @@ public class Detaille extends AppCompatActivity {
         LayoutInflater layoutInflater = LayoutInflater.from(this);
         layoutInflater.inflate(R.layout.form_ajout_achat, toolbarDetaille);
         setSupportActionBar(toolbarDetaille);
-
     }
 
 
@@ -57,6 +56,7 @@ public class Detaille extends AppCompatActivity {
          adapterAchat = new AdapterAchat(this,android.R.layout.simple_list_item_1,listAchats);
         listView = findViewById(R.id.list_achats);
         listView.setAdapter(adapterAchat);
+        ((TextView)findViewById(R.id.somme_prix)).setText(Float.toString(adapterAchat.sommeAchats()));
     }
 
 
@@ -77,7 +77,8 @@ public class Detaille extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_ajouter_achat) {
             String nom = ((EditText) findViewById(R.id.input_achat)).getText().toString();
-            float prix = Float.parseFloat(((EditText)findViewById(R.id.input_prix_achat)).getText().toString());
+            String strFloat = ((EditText)findViewById(R.id.input_prix_achat)).getText().toString();
+            float prix = Float.parseFloat(strFloat.equals("")?"0":strFloat);
             String quantite = ((EditText) findViewById(R.id.input_quantite)).getText().toString();
 
             Achat achat = new Achat(nom, quantite, prix, -1, idClient, idMolahanot);
@@ -88,8 +89,8 @@ public class Detaille extends AppCompatActivity {
                 daoAchat.ajouterAchat(achat);
                 adapterAchat.add(achat);
                 listView.setAdapter(adapterAchat);
-
-            }
+                ((TextView)findViewById(R.id.somme_prix)).setText(Float.toString(adapterAchat.getSomme()));
+                }
 
             return true;
         }

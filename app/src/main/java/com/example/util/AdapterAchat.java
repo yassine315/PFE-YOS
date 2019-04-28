@@ -17,12 +17,14 @@ import java.util.List;
 
 public class AdapterAchat extends ArrayAdapter<Achat> {
     HashMap<Achat, Integer> mIdMap = new HashMap<Achat, Integer>();
+    float somme;
 
     public AdapterAchat(@NonNull Context context, int resource, @NonNull List<Achat> objects) {
         super(context, resource, objects);
         for(int i=0; i<objects.size() ; i++){
             mIdMap.put(objects.get(i),i);
         }
+        somme = sommeAchats();
     }
 
     @Override
@@ -47,7 +49,19 @@ public class AdapterAchat extends ArrayAdapter<Achat> {
         return rowView;
     }
     public void add(Achat achat){
+        super.add(achat);
         mIdMap.put(achat,mIdMap.size());
+        somme += achat.getPrix();
+
+    }
+    public  float getSomme(){return somme;}
+
+    public float sommeAchats(){
+        float somme = 0;
+        for(int i=0 ; i<mIdMap.size();i++){
+            somme += getItem(i).getPrix();
+        }
+        return  somme;
     }
 
 }
