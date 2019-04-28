@@ -92,6 +92,7 @@ public class ResultaMolhanot extends AppCompatActivity {
                                                        */
                                                 Intent intent = new Intent(ResultaMolhanot.this,Detaille.class);
                                                 intent.putExtra("idClient",item.getId());
+                                                intent.putExtra("nomClient",(CharSequence)item.getNom());
                                                 startActivity(intent);
 
                                             }

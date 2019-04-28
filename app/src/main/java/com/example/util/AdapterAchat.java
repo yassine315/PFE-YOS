@@ -40,10 +40,14 @@ public class AdapterAchat extends ArrayAdapter<Achat> {
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.row_achat, parent, false);
         Achat achat = getItem(position);
-        ((TextView)rowView.findViewById(R.id.id_achat)).setText(Integer.toString(achat.getId()));
+        ((TextView)rowView.findViewById(R.id.id_achat)).setText(Integer.toString(position+1));
         ((TextView)rowView.findViewById(R.id.nom_achat)).setText(achat.getNom());
         ((TextView)rowView.findViewById(R.id.quantite_achat)).setText(achat.getQuantite());
         ((TextView)rowView.findViewById(R.id.prix_achat)).setText(Float.toString(achat.getPrix()));
         return rowView;
     }
+    public void add(Achat achat){
+        mIdMap.put(achat,mIdMap.size());
+    }
+
 }

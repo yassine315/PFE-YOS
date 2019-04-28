@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 
 import com.example.com.example.beans.Achat;
@@ -27,19 +28,22 @@ public class Detaille extends AppCompatActivity {
     private int idClient;
     private final int idMolahanot = 1;
     ListView listView;
+    AdapterAchat adapterAchat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detaille);
+
         idClient = getIntent().getIntExtra("idClient", -1);
+        //((TextView)findViewById(R.id.label_client)).setText(getIntent().getCharSequenceExtra("nomClient"));
+
         daoAchat = new DaoAchat(this);
+
         toolbarDetaille = findViewById(R.id.toolbar_detaille);
 
         LayoutInflater layoutInflater = LayoutInflater.from(this);
-
         layoutInflater.inflate(R.layout.form_ajout_achat, toolbarDetaille);
-
         setSupportActionBar(toolbarDetaille);
 
     }
@@ -50,7 +54,7 @@ public class Detaille extends AppCompatActivity {
         super.onStart();
 
         List<Achat> listAchats = daoAchat.aficherAchats(idClient,idMolahanot);
-        final AdapterAchat adapterAchat = new AdapterAchat(this,android.R.layout.simple_list_item_1,listAchats);
+         adapterAchat = new AdapterAchat(this,android.R.layout.simple_list_item_1,listAchats);
         listView = findViewById(R.id.list_achats);
         listView.setAdapter(adapterAchat);
     }
@@ -73,12 +77,19 @@ public class Detaille extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_ajouter_achat) {
             String nom = ((EditText) findViewById(R.id.input_achat)).getText().toString();
-            float prix = ((EditText) findViewById(R.id.input_achat)).getX();
+            float prix = Float.parseFloat(((EditText)findViewById(R.id.input_prix_achat)).getText().toString());
             String quantite = ((EditText) findViewById(R.id.input_quantite)).getText().toString();
 
             Achat achat = new Achat(nom, quantite, prix, -1, idClient, idMolahanot);
+            if(achat.achaValide()) {
+                ((EditText) findViewById(R.id.input_achat)).setText("");
+                ((EditText) findViewById(R.id.input_prix_achat)).setText("");
+                ((EditText) findViewById(R.id.input_quantite)).setText("");
+                daoAchat.ajouterAchat(achat);
+                adapterAchat.add(achat);
+                listView.setAdapter(adapterAchat);
 
-            daoAchat.ajouterAchat(achat);
+            }
 
             return true;
         }

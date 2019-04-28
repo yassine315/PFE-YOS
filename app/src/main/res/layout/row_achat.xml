@@ -1,28 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content">
+<TableRow
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
     <TextView
         android:id="@+id/id_achat"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp"/>
-
+        android:width="0dp"
+        android:layout_weight=".10" />
     <TextView
         android:id="@+id/nom_achat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"/>
-
+        android:width="0dp"
+        android:layout_weight=".40" />
     <TextView
         android:id="@+id/quantite_achat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"/>
+        android:layout_width="0dp"
+        android:layout_weight=".25"/>
     <TextView
         android:id="@+id/prix_achat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"/>
-</LinearLayout>
+        android:width="0dp"
+        android:layout_weight=".25" />
+</TableRow>
+</TableLayout>

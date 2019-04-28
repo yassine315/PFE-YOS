@@ -11,13 +11,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.example.bd.BdMolhanot;
-import com.example.com.example.beans.Molhanot;
 import com.example.com.example.beans.MolhanotInfo;
-import com.example.com.example.beans.StatutKonachy;
-import com.example.dao.DaoMolhanot;
-
-import java.util.Date;
 
 public class Inscrire extends AppCompatActivity {
 

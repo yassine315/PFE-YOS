@@ -40,4 +40,8 @@ public class Achat {
     public int getIdMolhanot() {
         return idMolhanot;
     }
+    public boolean achaValide(){
+        if(!nom.equals("")&&prix!=0)return true;
+        return false;
+    }
 }
