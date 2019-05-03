@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.example.com.example.beans.MolhanotInfo;
+import com.example.com.example.beans.Compte;
 
 public class Inscrire extends AppCompatActivity {
 
@@ -55,18 +55,18 @@ public class Inscrire extends AppCompatActivity {
                         if( !(nom.contentEquals("")|| prenom.contentEquals("") || tele.contentEquals("")|| password.contentEquals(""))) {
                             SharedPreferences.Editor editor = sharedPreferences.edit();
                             //on enregestrer les donnes dans le tele
-                            editor.putString(MolhanotInfo.NOM,nom);
-                            editor.putString(MolhanotInfo.PRENOM,prenom);
-                            editor.putString(MolhanotInfo.PASSWORD,password);
-                            editor.putString(MolhanotInfo.PHONE,tele);
-                            editor.putInt(MolhanotInfo.ID,1);
-                            editor.putString(MolhanotInfo.STATUT,statut);
-                            editor.putString(MolhanotInfo.EMAIL,email);
+                            editor.putString(Compte.NOM,nom);
+                            editor.putString(Compte.PRENOM,prenom);
+                            editor.putString(Compte.PASSWORD,password);
+                            editor.putString(Compte.PHONE,tele);
+                            editor.putInt(Compte.ID,1);
+                            editor.putString(Compte.STATUT,statut);
+                            editor.putString(Compte.EMAIL,email);
 
                             editor.commit();
 
-                            //on enregester dans MolhanotInfo
-                            MolhanotInfo.initialiser(sharedPreferences.getString(MolhanotInfo.NOM,"null"),sharedPreferences.getString(MolhanotInfo.PRENOM,"null"),sharedPreferences.getInt(MolhanotInfo.ID,0),sharedPreferences.getString(MolhanotInfo.PASSWORD,"null"),sharedPreferences.getString(MolhanotInfo.PHONE,"null"),sharedPreferences.getString(MolhanotInfo.STATUT,"null"),sharedPreferences.getString(MolhanotInfo.EMAIL,"null"));
+                            //on enregester dans Compte
+                            Compte.initialiser(sharedPreferences.getString(Compte.NOM,"null"),sharedPreferences.getString(Compte.PRENOM,"null"),sharedPreferences.getInt(Compte.ID,0),sharedPreferences.getString(Compte.PASSWORD,"null"),sharedPreferences.getString(Compte.PHONE,"null"),sharedPreferences.getString(Compte.STATUT,"null"),sharedPreferences.getString(Compte.EMAIL,"null"));
 
 
 

@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 
 import com.example.com.example.beans.Achat;
+import com.example.com.example.beans.Carne;
 import com.example.dao.DaoAchat;
 import com.example.dao.DaoMolhanot;
 import com.example.util.AdapterAchat;
@@ -25,7 +26,7 @@ public class Detaille extends AppCompatActivity {
 
     private DaoAchat daoAchat;
     private Toolbar toolbarDetaille;
-    private int idClient;
+    private Carne carne;
     private final int idMolahanot = 1;
     ListView listView;
     AdapterAchat adapterAchat ;
@@ -35,7 +36,8 @@ public class Detaille extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detaille);
 
-        idClient = getIntent().getIntExtra("idClient", -1);
+        int idClient = getIntent().getIntExtra("idClient", -1);
+        carne = new Carne(idMolahanot,idClient,null,null);
         //((TextView)findViewById(R.id.label_client)).setText(getIntent().getCharSequenceExtra("nomClient"));
 
         daoAchat = new DaoAchat(this);
@@ -52,8 +54,8 @@ public class Detaille extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        List<Achat> listAchats = daoAchat.aficherAchats(idClient,idMolahanot);
-         adapterAchat = new AdapterAchat(this,android.R.layout.simple_list_item_1,listAchats);
+        daoAchat.aficherAchats(carne);
+        adapterAchat = new AdapterAchat(this,android.R.layout.simple_list_item_1,carne.getListAchats());
         listView = findViewById(R.id.list_achats);
         listView.setAdapter(adapterAchat);
         ((TextView)findViewById(R.id.somme_prix)).setText(Float.toString(adapterAchat.sommeAchats()));
@@ -81,7 +83,7 @@ public class Detaille extends AppCompatActivity {
             float prix = Float.parseFloat(strFloat.equals("")?"0":strFloat);
             String quantite = ((EditText) findViewById(R.id.input_quantite)).getText().toString();
 
-            Achat achat = new Achat(nom, quantite, prix, -1, idClient, idMolahanot);
+            Achat achat = new Achat(nom, quantite, prix, -1,carne.getIdClient(), carne.getIdMolhanot());
             if(achat.achaValide()) {
                 ((EditText) findViewById(R.id.input_achat)).setText("");
                 ((EditText) findViewById(R.id.input_prix_achat)).setText("");

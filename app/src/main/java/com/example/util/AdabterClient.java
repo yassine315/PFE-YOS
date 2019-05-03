@@ -54,4 +54,9 @@ public class AdabterClient extends ArrayAdapter<Client> {
         ((TextView)rowView.findViewById(R.id.list_phon_client)).setText(client.getPhone());
     return rowView;
     }
+
+    public void  add(Client client){
+        super.add(client);
+        mIdMap.put(client,mIdMap.size());
+    }
 }

@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.com.example.beans.Client;
@@ -19,6 +20,15 @@ import com.example.yassinetest.R;
 import java.util.Date;
 
 public class DialogAddClient extends DialogFragment {
+    private Client client;
+    private AdabterClient adabterClient;
+    private ListView listView;
+
+    public void initialiser(AdabterClient adabterClient, ListView listView) {
+        this.adabterClient = adabterClient ;
+        this.listView = listView;
+
+    }
 
     @Override
     public Dialog onCreateDialog(final Bundle savedInstanceState) {
@@ -38,15 +48,14 @@ public class DialogAddClient extends DialogFragment {
                 String tele = ((EditText) view.findViewById(R.id.boitTele)).getText().toString();
                 String cni = ((EditText) view.findViewById(R.id.boitCni)).getText().toString();
 
-                Client client = new Client(0, name, prenom, 1, tele, new Date(), cni);
+                client = new Client(0, name, prenom, 1, tele, new Date(), cni);
 
                 DaoMolhanot daoMolhanot = new DaoMolhanot(getContext());
                 if(!(name.equals("")|| prenom.equals("") || tele.equals(""))) {
                     long l = daoMolhanot.ajouterClient(client);
-
+                    adabterClient.add(client);
+                    listView.setAdapter(adabterClient);
                 }
-                getActivity().finish();
-                startActivity(getActivity().getIntent());
 
 
             }

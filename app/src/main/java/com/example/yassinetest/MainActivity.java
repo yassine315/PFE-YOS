@@ -10,13 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.com.example.beans.MolhanotInfo;
+import com.example.com.example.beans.Compte;
 
 public class MainActivity extends AppCompatActivity {
 
     Button inscrire ;
-
-    MolhanotInfo molhanotInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         //on recupere les info enregestrer
         SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(this);
-          MolhanotInfo.initialiser(SP.getString(MolhanotInfo.NOM,"null"),SP.getString(MolhanotInfo.PRENOM,"null"),SP.getInt(MolhanotInfo.ID,0),SP.getString(MolhanotInfo.PASSWORD,"null"),SP.getString(MolhanotInfo.PHONE,"null"),SP.getString(MolhanotInfo.STATUT,"null"),SP.getString(MolhanotInfo.EMAIL,"null"));
+          Compte.initialiser(SP.getString(Compte.NOM,"null"),SP.getString(Compte.PRENOM,"null"),SP.getInt(Compte.ID,0),SP.getString(Compte.PASSWORD,"null"),SP.getString(Compte.PHONE,"null"),SP.getString(Compte.STATUT,"null"),SP.getString(Compte.EMAIL,"null"));
 
 
 
@@ -33,13 +31,13 @@ public class MainActivity extends AppCompatActivity {
         //lors de click sur inscription , on test si l'inscription est deja effectue
         inscrire = (Button) findViewById(R.id.inscrire);
         inscrire.setOnClickListener(new View.OnClickListener() {
+
             @Override
+
             public void onClick(View v) {
 
-                if (MolhanotInfo.isEmpty()) {
+                if (Compte.isEmpty()) {
                     Intent secondeActivite = new Intent(MainActivity.this, Inscrire.class);
-
-
                     // Puis on lance l'intent !
 
                     startActivity(secondeActivite);
@@ -60,13 +58,13 @@ public class MainActivity extends AppCompatActivity {
                     String tele = ((EditText)findViewById(R.id.loginConnection)).getText().toString();
                     String password = ((EditText)findViewById(R.id.passwordConnection)).getText().toString();
 
-                    if(tele.equals(MolhanotInfo.getPhone()) && password.equals(MolhanotInfo.getPassword())){
+                    if(tele.equals(Compte.getPhone()) && password.equals(Compte.getPassword())){
                         Intent intent = new Intent(MainActivity.this, ResultaMolhanot.class);
 
                         startActivity(intent);
                     }
                     else{
-                        if(MolhanotInfo.getPhone().equals("null") && MolhanotInfo.getPassword().equals("null")){
+                        if(Compte.getPhone().equals("null") && Compte.getPassword().equals("null")){
                             Toast.makeText(MainActivity.this, "erreure de connecxion, tu dois s'inscrir", Toast.LENGTH_LONG).show();
 
                         }
@@ -93,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Le premier paramètre est le nom de l'activité actuelle
                 // Le second est le nom de l'activité de destination
-                if (MolhanotInfo.isEmpty()) {
+                if (Compte.isEmpty()) {
                     Intent secondeActivite = new Intent(MainActivity.this, Inscrire.class);
 
 

@@ -5,10 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.bd.Bd;
 import com.example.bd.BdMolhanot;
 import com.example.com.example.beans.Achat;
-import com.example.com.example.beans.MolhanotInfo;
+import com.example.com.example.beans.Carne;
+import com.example.com.example.beans.Compte;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ public class DaoAchat {
 
     public  long ajouterAchat(Achat achat){
 
-        BdMolhanot bd = new BdMolhanot(context , MolhanotInfo.DB,null, 1);
+        BdMolhanot bd = new BdMolhanot(context , Compte.DB,null, 1);
         SQLiteDatabase bdsql = bd.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
@@ -40,20 +40,21 @@ public class DaoAchat {
     return  rs;
     }
 
-    public List<Achat> aficherAchats(int idClientP,int idMolhanotP){
+    public Carne aficherAchats(Carne carne){
 
-        BdMolhanot bd = new BdMolhanot(context , MolhanotInfo.DB,null, 1);
+        BdMolhanot bd = new BdMolhanot(context , Compte.DB,null, 1);
         SQLiteDatabase bdsql = bd.getWritableDatabase();
 
-        Cursor cursor = bdsql.query(bd.TABLE_ACHATS,new String[]{bd.ID_ACHAT,bd.NOM_ACHAT,bd.QUANTITE_ACHAT,bd.PRIX},bd.ID_CLIENT_ACHAT+"="+idClientP,null,null,null,null);
+        Cursor cursor = bdsql.query(bd.TABLE_ACHATS,new String[]{bd.ID_ACHAT,bd.NOM_ACHAT,bd.QUANTITE_ACHAT,bd.PRIX},bd.ID_CLIENT_ACHAT+"="+carne.getIdClient(),null,null,null,null);
         ArrayList<Achat> rs = new ArrayList<Achat>();
         while (cursor.moveToNext()){
-            Achat achat = new Achat(cursor.getString(1),cursor.getString(2),cursor.getFloat(3),cursor.getInt(0),idClientP,idMolhanotP);
+            Achat achat = new Achat(cursor.getString(1),cursor.getString(2),cursor.getFloat(3),cursor.getInt(0),carne.getIdClient(),carne.getIdMolhanot());
             rs.add(achat);
         }
         cursor.close();
         bdsql.close();
         bd.close();
-        return rs;
+        carne.setListAchats(rs);
+        return carne;
     }
 }

@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.bd.BdMolhanot;
 import com.example.com.example.beans.Client;
-import com.example.com.example.beans.MolhanotInfo;
+import com.example.com.example.beans.Compte;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,7 +21,7 @@ public class DaoMolhanot {
     }
 
     public  long ajouterClient(Client client ){
-        BdMolhanot bd = new BdMolhanot( context, MolhanotInfo.DB,null,1);
+        BdMolhanot bd = new BdMolhanot( context, Compte.DB,null,1);
         SQLiteDatabase bdsql = bd.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
@@ -41,7 +41,7 @@ public class DaoMolhanot {
 
     public List<Client> aficher() {
         //ArrayList<Molhanot> list = new ArrayList<Molhanot>();
-        BdMolhanot bd = new BdMolhanot(context, MolhanotInfo.DB, null, 1);
+        BdMolhanot bd = new BdMolhanot(context, Compte.DB, null, 1);
         SQLiteDatabase bdsql = bd.getWritableDatabase();
         Cursor cursor =  bdsql.query(bd.TABLE_CLIENT, new String[]{bd.ID_CLIENT,bd.NOM_CLIENT,bd.PRENOM_CLIENT,bd.PHONE_CLIENT,bd.DATE,bd.CNI}, "", null, null, null, null);
 

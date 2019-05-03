@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.yassinetest" >
 
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/konachy"
@@ -10,6 +11,8 @@
         android:roundIcon="@mipmap/konachy"
         android:supportsRtl="true"
         >
+
+
         <activity
             android:name=".MainActivity"
             android:label="@string/titre"
@@ -19,6 +22,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".Inscrire"

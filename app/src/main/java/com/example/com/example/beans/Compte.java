@@ -1,6 +1,6 @@
 package com.example.com.example.beans;
 
-public class MolhanotInfo {
+public class Compte {
 
     private static String nom ;
     private static String prenom ;

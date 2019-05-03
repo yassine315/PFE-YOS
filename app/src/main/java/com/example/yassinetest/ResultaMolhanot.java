@@ -11,14 +11,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.com.example.beans.Client;
+import com.example.com.example.beans.Compte;
+import com.example.com.example.beans.Molhanot;
 import com.example.dao.DaoMolhanot;
 import com.example.util.AdabterClient;
 import com.example.util.DialogAddClient;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -26,19 +26,21 @@ public class ResultaMolhanot extends AppCompatActivity {
 
     private Toolbar mTopToolbar;
     DaoMolhanot daoMolhanot;
+    Molhanot molhanot;
 
-    List<Client> monListC ;
-    ListView listView;
+    private List<Client> monListC ;
+    private ListView listView;
+    private AdabterClient adabterClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.result_molhanot);
+        molhanot = new Molhanot(1, Compte.getNom(),Compte.getPrenom(),Compte.getEmail(),Compte.getPhone(),null);
         mTopToolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(mTopToolbar);
         daoMolhanot = new DaoMolhanot(this);
          listView = (ListView)findViewById(R.id.list_client);
-
     }
 
 
@@ -59,7 +61,7 @@ public class ResultaMolhanot extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_ajouter) {
             DialogAddClient dialogAddClient = new DialogAddClient();
-
+            dialogAddClient.initialiser(adabterClient,listView);
             dialogAddClient.show(getSupportFragmentManager(),null);
             return true;
         }
@@ -70,9 +72,8 @@ public class ResultaMolhanot extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Toast.makeText(this, "onStart", Toast.LENGTH_LONG).show();
-        monListC = daoMolhanot.aficher();
-        final AdabterClient adabterClient = new AdabterClient(this,android.R.layout.simple_list_item_1,monListC);
+        molhanot.setListClient( daoMolhanot.aficher());
+        adabterClient = new AdabterClient(this,android.R.layout.simple_list_item_1,molhanot.getListClient());
         listView.setAdapter(adabterClient);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 

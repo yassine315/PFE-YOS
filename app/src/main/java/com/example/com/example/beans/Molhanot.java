@@ -3,6 +3,7 @@ package com.example.com.example.beans;
 import android.content.Context;
 
 import java.util.Date;
+import java.util.List;
 
 public class Molhanot {
 
@@ -12,6 +13,7 @@ public class Molhanot {
     private  String email;
     private String tele;
     private Date date;
+    private List<Client> listClient;
 
 
     public Molhanot(int id, String nom, String prenom, String email, String tele, Date date) {
@@ -23,6 +25,14 @@ public class Molhanot {
         this.date = date;
     }
 
+
+    public void setListClient(List<Client> listClient) {
+        this.listClient = listClient;
+    }
+
+    public List<Client> getListClient() {
+        return listClient;
+    }
 
     public Molhanot(String nom, String prenom, String email, String tele, Date date) {
         this.nom = nom;
