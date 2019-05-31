@@ -1,4 +1,4 @@
-package com.example.bd;
+package com.konachy.bd;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

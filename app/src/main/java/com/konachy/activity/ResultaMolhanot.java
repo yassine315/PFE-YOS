@@ -1,4 +1,4 @@
-package com.example.yassinetest;
+package com.konachy.activity;
 
 import android.content.Intent;
 import android.os.Build;
@@ -12,12 +12,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.com.example.beans.Client;
-import com.example.com.example.beans.Compte;
-import com.example.com.example.beans.Molhanot;
-import com.example.dao.DaoMolhanot;
-import com.example.util.AdabterClient;
-import com.example.util.DialogAddClient;
+import com.konachy.com.example.beans.Client;
+import com.konachy.com.example.beans.Compte;
+import com.konachy.com.example.beans.Molhanot;
+import com.konachy.dao.DaoMolhanot;
+import com.konachy.util.AdabterClient;
+import com.konachy.util.DialogAddClient;
+import com.example.yassinetest.R;
 
 import java.util.List;
 
@@ -41,6 +42,7 @@ public class ResultaMolhanot extends AppCompatActivity {
         setSupportActionBar(mTopToolbar);
         daoMolhanot = new DaoMolhanot(this);
          listView = (ListView)findViewById(R.id.list_client);
+
     }
 
 
@@ -58,11 +60,18 @@ public class ResultaMolhanot extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+        if(id == R.id.action_deconecter){
+            Intent intent = new Intent(this,MainActivity.class);
+            startActivity(intent);
+
+        }
+
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_ajouter) {
             DialogAddClient dialogAddClient = new DialogAddClient();
             dialogAddClient.initialiser(adabterClient,listView);
             dialogAddClient.show(getSupportFragmentManager(),null);
+
             return true;
         }
 
@@ -92,8 +101,9 @@ public class ResultaMolhanot extends AppCompatActivity {
                                                         });
                                                        */
                                                 Intent intent = new Intent(ResultaMolhanot.this,Detaille.class);
+                                                intent.putExtra("nom",item.getNom());
                                                 intent.putExtra("idClient",item.getId());
-                                                intent.putExtra("nomClient",(CharSequence)item.getNom());
+
                                                 startActivity(intent);
 
                                             }
@@ -104,5 +114,8 @@ public class ResultaMolhanot extends AppCompatActivity {
 
 
     }
+
+
+
 
 }

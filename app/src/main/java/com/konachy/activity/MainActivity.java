@@ -1,4 +1,4 @@
-package com.example.yassinetest;
+package com.konachy.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,7 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.com.example.beans.Compte;
+import com.konachy.com.example.beans.Compte;
+import com.example.yassinetest.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(secondeActivite);
                 } else {
 
-                    Toast.makeText(MainActivity.this, "tu as deja inscrit", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "Tu as déjà inscrit.", Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -58,51 +59,30 @@ public class MainActivity extends AppCompatActivity {
                     String tele = ((EditText)findViewById(R.id.loginConnection)).getText().toString();
                     String password = ((EditText)findViewById(R.id.passwordConnection)).getText().toString();
 
-                    if(tele.equals(Compte.getPhone()) && password.equals(Compte.getPassword())){
-                        Intent intent = new Intent(MainActivity.this, ResultaMolhanot.class);
+                    if(tele.equals(Compte.getPhone()) && password.equals(Compte.getPassword()) ){
+                        if(Compte.getStatut().equals("molhanot") ){
+                            Intent intent = new Intent(MainActivity.this, ResultaMolhanot.class);
 
-                        startActivity(intent);
+                            startActivity(intent);
+                            finish();
+                        }
+                        else  if(Compte.getStatut().equals("client")){
+                        }
                     }
                     else{
                         if(Compte.getPhone().equals("null") && Compte.getPassword().equals("null")){
-                            Toast.makeText(MainActivity.this, "erreure de connecxion, tu dois s'inscrir", Toast.LENGTH_LONG).show();
+                            Toast.makeText(MainActivity.this, "erreur de connexion, tu dois s'inscrire", Toast.LENGTH_LONG).show();
 
                         }
                         else {
                         ((EditText)findViewById(R.id.loginConnection)).setText("");
                         ((EditText)findViewById(R.id.passwordConnection)).setText("");
-                        Toast.makeText(MainActivity.this, "erreure de connecxion , etes vous sur que vous etes le proprietaire de ce tele", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Erreur de connexion, êtes-vous sûr que vous êtes le propriétaire de ce télé !!", Toast.LENGTH_LONG).show();
                         }
                     }
                 }
             });
     }
 
-/*
-    @Override
-    protected void onStart() {
-        super.onStart();
 
-
-
-        inscrire = (Button) findViewById(R.id.inscrire);
-        inscrire.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Le premier paramètre est le nom de l'activité actuelle
-                // Le second est le nom de l'activité de destination
-                if (Compte.isEmpty()) {
-                    Intent secondeActivite = new Intent(MainActivity.this, Inscrire.class);
-
-
-                    // Puis on lance l'intent !
-                    startActivity(secondeActivite);
-                } else {
-
-                    Toast.makeText(MainActivity.this, "tu as deja inscrit", Toast.LENGTH_LONG).show();
-                }
-
-            }
-        });
-    }*/
 }

@@ -5,7 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="visible"
-    tools:context=".MainActivity">
+    tools:context="com.konachy.activity.MainActivity">
+    <LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
 
     <EditText
         android:id="@+id/loginConnection"
@@ -13,11 +18,7 @@
         android:layout_height="47dp"
         android:hint="votre num de tele"
         android:inputType="phone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.146" />
+        android:layout_gravity="center"/>
 
         />
 
@@ -27,11 +28,7 @@
         android:layout_height="wrap_content"
         android:hint="votre mot de passe "
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.288"/>
+        android:layout_gravity="center"/>
 
     />
 
@@ -40,24 +37,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Connecter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.277"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.428"/>
+        android:layout_gravity="center"/>
 
     <Button
         android:id="@+id/inscrire"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="S'inscrire"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.73"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.428" />
+        android:layout_gravity="center"/>
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
@@ -78,5 +65,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="top" />
-
+</LinearLayout>
 </android.support.constraint.ConstraintLayout>

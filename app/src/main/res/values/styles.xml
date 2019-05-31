@@ -4,34 +4,14 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorBackApp</item>
         <item name="colorAccent">@color/colorAccent</item>
-
+        <item name="android:color">@color/colorAccent</item>
     </style>
-
-    <style name="HeaderBar">
-            <item name="android:background">#303F9F</item>
-    </style>
-
     <style name="NoActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
-
-
         <item name="android:windowAnimationStyle">@null</item>
+        <item name="colorPrimaryDark">@color/colorBackApp</item>
         <item name="android:windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
     </style>
-
-    <style name="ActionBarThemeOverlay" parent="">
-        <item name="android:textColorPrimary">#fff</item>
-        <item name="colorControlNormal">@color/colorPrimary</item>
-        <item name="colorControlHighlight">@color/colorPrimary</item>
-        <item name="android:textColor">#fff</item>
-    </style>
-
-    <style name="ActionBarPopupThemeOverlay" parent="ThemeOverlay.AppCompat.Light" >
-        <item name="android:background">@android:color/white</item>
-        <item name="android:textColor">#fff</item>
-    </style>
-
-
 </resources>

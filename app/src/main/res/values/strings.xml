@@ -6,4 +6,5 @@
     <string name="inscrire">inscrire</string>
     <string name="ajouter">ajouter</string>
     <string name="anuler">anuler</string>
+    <string name="menu_delete">suprimer</string>
 </resources>

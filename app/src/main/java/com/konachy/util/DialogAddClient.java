@@ -1,4 +1,4 @@
-package com.example.util;
+package com.konachy.util;
 
 
 import android.app.Dialog;
@@ -6,15 +6,13 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.example.com.example.beans.Client;
-import com.example.dao.DaoMolhanot;
+import com.konachy.com.example.beans.Client;
+import com.konachy.dao.DaoMolhanot;
 import com.example.yassinetest.R;
 
 import java.util.Date;

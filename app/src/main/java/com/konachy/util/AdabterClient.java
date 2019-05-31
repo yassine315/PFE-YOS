@@ -1,4 +1,4 @@
-package com.example.util;
+package com.konachy.util;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.com.example.beans.Client;
+import com.konachy.com.example.beans.Client;
 import com.example.yassinetest.R;
 
 import java.util.HashMap;

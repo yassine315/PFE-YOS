@@ -1,17 +1,16 @@
-package com.example.dao;
+package com.konachy.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.bd.BdMolhanot;
-import com.example.com.example.beans.Achat;
-import com.example.com.example.beans.Carne;
-import com.example.com.example.beans.Compte;
+import com.konachy.bd.BdMolhanot;
+import com.konachy.com.example.beans.Achat;
+import com.konachy.com.example.beans.Carne;
+import com.konachy.com.example.beans.Compte;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class DaoAchat {
 
@@ -57,4 +56,26 @@ public class DaoAchat {
         carne.setListAchats(rs);
         return carne;
     }
+
+    public long suprimerAchat(int id){
+        BdMolhanot bd = new BdMolhanot(context , Compte.DB,null, 1);
+        SQLiteDatabase bdsql = bd.getWritableDatabase();
+
+        long rs = bdsql.delete(bd.TABLE_ACHATS,bd.ID_ACHAT+" = ?",new String[]{Integer.toString(id)});
+
+        return  rs;
+    }
+
+    public long suprimrCarne(Carne carne){
+
+
+        BdMolhanot bd = new BdMolhanot(context , Compte.DB,null, 1);
+        SQLiteDatabase bdsql = bd.getWritableDatabase();
+
+        long rs = bdsql.delete(bd.TABLE_ACHATS,bd.ID_CLIENT_ACHAT+"= ? AND "+bd.ID_MOLHANOT_ACHAT +"= ?", new String[]{Integer.toString(carne.getIdClient()),Integer.toString(carne.getIdMolhanot())});
+
+
+        return  rs;
+    }
+
 }

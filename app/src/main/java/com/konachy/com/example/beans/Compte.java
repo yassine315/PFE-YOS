@@ -1,4 +1,4 @@
-package com.example.com.example.beans;
+package com.konachy.com.example.beans;
 
 public class Compte {
 

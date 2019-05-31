@@ -7,6 +7,12 @@
         android:title="ajouter"
         android:icon="@drawable/ajouter"
         app:showAsAction="ifRoom" >
-
+    </item>
+    <item
+        android:id="@+id/action_suprimer_carne"
+        android:orderInCategory="300"
+        android:title="suprimer"
+        android:icon="@android:drawable/ic_menu_delete"
+        app:showAsAction="ifRoom" >
     </item>
 </menu>

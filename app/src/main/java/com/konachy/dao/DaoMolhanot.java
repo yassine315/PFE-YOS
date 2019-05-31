@@ -1,13 +1,13 @@
-package com.example.dao;
+package com.konachy.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.bd.BdMolhanot;
-import com.example.com.example.beans.Client;
-import com.example.com.example.beans.Compte;
+import com.konachy.bd.BdMolhanot;
+import com.konachy.com.example.beans.Client;
+import com.konachy.com.example.beans.Compte;
 
 import java.util.ArrayList;
 import java.util.Date;

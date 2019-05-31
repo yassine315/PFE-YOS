@@ -1,4 +1,4 @@
-package com.example.yassinetest;
+package com.konachy.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,7 +11,8 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.example.com.example.beans.Compte;
+import com.konachy.com.example.beans.Compte;
+import com.example.yassinetest.R;
 
 public class Inscrire extends AppCompatActivity {
 

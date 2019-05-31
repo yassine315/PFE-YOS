@@ -1,6 +1,4 @@
-package com.example.com.example.beans;
-
-import android.content.Context;
+package com.konachy.com.example.beans;
 
 import java.util.Date;
 import java.util.List;
