@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center|center_vertical"
+    android:orientation="vertical"
+    android:paddingLeft="50dp"
+    android:paddingRight="50dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="@string/surname_arabe"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/fui_ic_anonymous_white_24dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/add_user_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="auto"
+                    android:inputType="textPersonName"
+                    android:textSize="22sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="@string/phone_arabe"
+        android:inputType="phone"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        app:endIconMode="clear_text"
+        app:startIconDrawable="@drawable/fui_ic_phone_white_24dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/add_phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="phone"
+            android:textSize="22sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>

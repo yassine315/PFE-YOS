@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "25482442187",
+    "firebase_url": "https://kounachy.firebaseio.com",
+    "project_id": "kounachy",
+    "storage_bucket": "kounachy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:25482442187:android:a61c368955c47035b9724e",
+        "android_client_info": {
+          "package_name": "com.ymwsn.kounachy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "25482442187-dh6cnm5ql0u7kh14jorc4tj7h7vfago7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ymwsn.kounachy",
+            "certificate_hash": "b7160d6b40559c72a14b3cd07eef3a0b969cbee8"
+          }
+        },
+        {
+          "client_id": "25482442187-lev8n6j21jcsh0peg1cn00553inud7ip.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1KjzVjhSMWC_1W4S_mmrMWuXHId5AKXE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "25482442187-lev8n6j21jcsh0peg1cn00553inud7ip.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

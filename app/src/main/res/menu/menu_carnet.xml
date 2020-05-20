@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+
+
+
+    <item
+        android:title="enable_modif"
+        android:id="@+id/enable_modif"
+        android:checkable="true"
+        android:enabled="false"
+        app:showAsAction="always"
+        app:actionViewClass="android.widget.Switch"
+        android:actionLayout="@layout/menu_switch_item"/>
+
+    <item
+        android:title="@string/delete"
+        android:id="@+id/delete_all"
+        android:icon="@android:drawable/ic_menu_delete"
+        app:showAsAction="always">
+    </item>
+
+    <item
+        android:title="@string/code_shar_carnet"
+        android:id="@+id/shar_carnet"
+        android:icon="@android:drawable/ic_menu_share"
+        app:showAsAction="always">
+    </item>
+
+</menu>

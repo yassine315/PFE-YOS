@@ -1,70 +1,92 @@
 package com.konachy.util;
 
-
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ListView;
+import android.widget.Toast;
 
-import com.konachy.com.example.beans.Client;
-import com.konachy.dao.DaoMolhanot;
-import com.example.yassinetest.R;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.DialogFragment;
+
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.konachy.activity.ui.seller.ClientViewModel;
+import com.konachy.beans.Carne;
+import com.konachy.beans.Client;
+import com.konachy.beans.User;
+import com.ymwsn.kounachy.R;
 
 import java.util.Date;
 
 public class DialogAddClient extends DialogFragment {
-    private Client client;
-    private AdabterClient adabterClient;
-    private ListView listView;
 
-    public void initialiser(AdabterClient adabterClient, ListView listView) {
-        this.adabterClient = adabterClient ;
-        this.listView = listView;
+    private DatabaseReference dataRefClient;
+    private DatabaseReference dataRefCarnet;
+    private TextInputEditText userName;
+    private TextInputEditText phone;
+    private String idUser;
 
-    }
+    public static String pathAddClient;
 
     @Override
-    public Dialog onCreateDialog(final Bundle savedInstanceState) {
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the Builder class for convenient dialog construction
+        Log.d("add client :", "dialogue box ");
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        final LayoutInflater inflater = requireActivity().getLayoutInflater();
+        LayoutInflater inflater = requireActivity().getLayoutInflater();
+        View box = inflater.inflate(R.layout.box_add_customer, null);
 
-        final View view = inflater.inflate(R.layout.ajouter_client, null);
+        Bundle bundle = getArguments();
 
-        builder.setView(view);
-        builder.setPositiveButton(R.string.ajouter, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
+        idUser = bundle.getString("id");
 
-
-                String name = ((EditText) view.findViewById(R.id.boitNameClient)).getText().toString();
-                String prenom = ((EditText) view.findViewById(R.id.boitPrenomClient)).getText().toString();
-                String tele = ((EditText) view.findViewById(R.id.boitTele)).getText().toString();
-                String cni = ((EditText) view.findViewById(R.id.boitCni)).getText().toString();
-
-                client = new Client(0, name, prenom, 1, tele, new Date(), cni);
-
-                DaoMolhanot daoMolhanot = new DaoMolhanot(getContext());
-                if(!(name.equals("")|| prenom.equals("") || tele.equals(""))) {
-                    long l = daoMolhanot.ajouterClient(client);
-                    adabterClient.add(client);
-                    listView.setAdapter(adabterClient);
-                }
+        Log.d("build path ", "build path reference data base add client");
+        pathAddClient = User.PATH_USERS+"/"+idUser+ClientViewModel.PATH;
 
 
-            }
-        });
-        builder.setNegativeButton(R.string.anuler, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                // User cancelled the dialog
-            }
-        });
+        Log.d("firebase database :","get reference add client");
+        dataRefClient = FirebaseDatabase.getInstance().getReference(pathAddClient);
+
+        dataRefCarnet = FirebaseDatabase.getInstance().getReference(Carne.PATH_CARNET);
+
+        userName = box.findViewById(R.id.add_user_name);
+        phone = box.findViewById(R.id.add_phone);
+        // Inflate and set the layout for the dialog
+        // Pass null as the parent view because its going in the dialog layout
+
+        builder.setView(box)
+                .setPositiveButton(R.string.add, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Log.d("action :", "add client clicked");
+
+                        String name = userName.getText().toString();
+                        String tele = phone.getText().toString();
+                        if (name.equals("") || tele.equals("")){
+                            Toast.makeText(getContext(), "أَدْخِل الإسم و الهاتف ", Toast.LENGTH_LONG).show();
+                        }
+                        else {
+                            final long time = new Date().getTime();
+                            Client client = new Client(Long.toString(time),name, false, tele, time, 0);
+                            Carne carne = new Carne(idUser, Long.toString(time), time, 0);
+                            Log.d("firebase : ", "add client and carnet");
+                            dataRefClient.child((Long.toString(time))).setValue(client);
+                            dataRefCarnet.child(Long.toString(client.getDate())).setValue(carne);
+                            dataRefCarnet.child(Long.toString(time)).keepSynced(true);
+                        }
+                        // FIRE ZE MISSILES!
+                    }
+                })
+                .setNegativeButton(R.string.annuler, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User cancelled the dialog
+                    }
+                });
         // Create the AlertDialog object and return it
         return builder.create();
     }
-
 }
+

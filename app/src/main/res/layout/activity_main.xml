@@ -1,69 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="visible"
     tools:context="com.konachy.activity.MainActivity">
+
+
     <LinearLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E5A5AB"
+        android:gravity="center|center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="100dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp">
 
-    <EditText
-        android:id="@+id/loginConnection"
-        android:layout_width="241dp"
-        android:layout_height="47dp"
-        android:hint="votre num de tele"
-        android:inputType="phone"
-        android:layout_gravity="center"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="@string/surname_arabe"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/fui_ic_anonymous_white_24dp">
 
-        />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/surname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="auto"
+                    android:inputType="textPersonName"
+                    android:textSize="@dimen/size_text" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/passwordConnection"
-        android:layout_width="241dp"
-        android:layout_height="wrap_content"
-        android:hint="votre mot de passe "
-        android:inputType="textPassword"
-        android:layout_gravity="center"/>
+        </LinearLayout>
 
-    />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/Connection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Connecter"
-        android:layout_gravity="center"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="@string/phone_arabe"
+                android:inputType="phone"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/fui_ic_phone_white_24dp">
 
-    <Button
-        android:id="@+id/inscrire"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="S'inscrire"
-        android:layout_gravity="center"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="phone"
+                    android:textSize="@dimen/size_text" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp" />
+        </LinearLayout>
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="16dp" />
+        <RadioGroup
+            android:id="@+id/status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:checkedButton="@+id/first"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-    <android.support.constraint.Barrier
-        android:id="@+id/barrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="top" />
-</LinearLayout>
-</android.support.constraint.ConstraintLayout>
+            <RadioButton
+                android:id="@+id/client"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingRight="30dp"
+                android:text="@string/client_arabe"
+                android:textAlignment="gravity"
+                android:textSize="@dimen/size_text" />
+
+            <RadioButton
+                android:id="@+id/seller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:padding="10dp"
+                android:paddingRight="30dp"
+                android:text="@string/seller_arabe"
+                android:textSize="@dimen/size_text" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/button_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@drawable/button_rond"
+            android:shadowColor="#ff8F1622"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:text="@string/next"
+            android:textSize="@dimen/size_text"
+            app:icon="@drawable/next" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

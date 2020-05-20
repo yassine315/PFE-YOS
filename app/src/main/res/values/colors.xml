@@ -3,5 +3,8 @@
     <color name="colorPrimary">#BE1E2D</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="colorBackApp">#D1374A</color>
+    <color name="colorBackApp">#881c26</color>
+    <color name="black">#000000</color>
+    <color name="colore_item_list">#A4A000</color>
+    <color name="primary_analogue_green">#A4A000</color>
 </resources>

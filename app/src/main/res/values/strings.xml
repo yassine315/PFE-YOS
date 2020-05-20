@@ -1,10 +1,48 @@
 <resources>
-    <string name="app_name">YassineTest</string>
+    <string name="surname_arabe">اللقب</string>
+    <string name="phone_arabe" translatable="true">الهاتف</string>
+    <string name="client_arabe" translatable="true">زَبُون</string>
+    <string name="seller_arabe" translatable="true">بائِع</string>
+    <string name="next" translatable="true">التَاليِ</string>
+    <string name="app_name">Kounachy</string>
     <string name="titre">Konachy</string>
-    <string name="client">client</string>
-    <string name="molhanot">molhanot</string>
-    <string name="inscrire">inscrire</string>
-    <string name="ajouter">ajouter</string>
-    <string name="anuler">anuler</string>
+    <string name="client_frensh">client</string>
+    <string name="seller_frensh">vendeur</string>
+    <string name="add" translatable="true">إِضَافة</string>
+    <string name="annuler" translatable="true">إِلغاء</string>
+    <string name="achat_quantity" translatable="true">الكِمية</string>
+    <string name="achat_name" translatable="true">اإِسم</string>
+    <string name="achat_price" translatable="true">الثَّمن</string>
+    <string name="delete" translatable="true">حذف</string>
+    <string name="message_error_data_base" translatable="true">حدث خطأ المرجو الإعادة</string>
+    <string name="message_alert_delete_all_achats" translatable="true">تأكيد المسح</string>
+    <string name="commit" translatable="true">تأكيد</string>
+    <string name="search_client" translatable="true">إبحت عن زائر</string>
+    <string name="menu_tite_client" translatable="true">زائر</string>
+    <string name="code_shar_carnet" translatable="true">رمز الإِشتِراك</string>
+    <string name="error_code" translatable="true">المرجو التّحقُق من الرَّمز</string>
     <string name="menu_delete">suprimer</string>
+
+    <string name="facebook_application_id" translatable="false">2604388906482506</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fb2604388906482506</string>
+    <string name="title_activity_home">Home</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="previous">Previous</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+    <!-- data base -->
+    <string name="path_users">/users</string>
+    <string name="error_network">الجهاز غير مرتبط بالأنترنيت</string>
+
+
 </resources>
